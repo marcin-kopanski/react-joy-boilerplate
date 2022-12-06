@@ -1,4 +1,6 @@
 import { Button, Link, Sheet, TextField, Typography } from "@mui/joy";
+import { AuthFooter } from "../../../components/Auth/AuthFooter";
+import { SheetHeader } from "../../../components/SheetHeader";
 
 type SignUpProps = {};
 
@@ -19,11 +21,7 @@ export const SignUp = (props: SignUpProps) => {
       }}
       variant="outlined"
     >
-      <div>
-        <Typography level="h4" component="h1">
-          <b>Welcome!</b>
-        </Typography>
-      </div>
+      <SheetHeader title="Welcome!" />
 
       <TextField name="email" type="email" placeholder="Enter your email" label="Email" />
       <TextField name="password" type="password" placeholder="Your password" label="Password" />
@@ -33,18 +31,10 @@ export const SignUp = (props: SignUpProps) => {
           mt: 1,
         }}
       >
-        Log in
+        Sign up
       </Button>
 
-      <Typography
-        sx={{
-          alignSelf: "center",
-        }}
-        endDecorator={<Link href="/sign-up">Sign up</Link>}
-        fontSize="sm"
-      >
-        Don't have an account?
-      </Typography>
+      <AuthFooter step="signup" />
     </Sheet>
   );
 };
