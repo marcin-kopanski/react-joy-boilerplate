@@ -1,5 +1,5 @@
 import { Button, Link, Sheet, TextField, Typography } from "@mui/joy";
-import { AuthFooter } from "../../../components/Auth/AuthFooter";
+import { AuthFooter } from "../AuthFooter";
 import { SheetHeader } from "../../../components/SheetHeader";
 
 type SignUpProps = {};
