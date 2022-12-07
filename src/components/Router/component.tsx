@@ -1,10 +1,8 @@
-import { FC, PropsWithChildren, PropsWithoutRef } from "react";
-import { QueryClient } from "react-query";
+import { FC } from "react";
 import { createBrowserRouter, RouterProvider } from "react-router-dom";
 import { BooksList } from "../../feature/books/books-list";
 import { allBooksLoader } from "../../models/book/query-client";
-
-const queryClient = new QueryClient();
+import { queryClient } from "../../services/query-client-service";
 
 const router = createBrowserRouter([
   {
@@ -19,5 +17,5 @@ const router = createBrowserRouter([
 ]);
 
 export const Router: FC<{}> = () => {
-  return <RouterProvider router={router}></RouterProvider>;
+  return <RouterProvider router={router} />;
 };
