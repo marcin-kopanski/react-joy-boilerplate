@@ -1,6 +1,6 @@
 import { Button, Link, Sheet, TextField, Typography } from "@mui/joy";
-import { AuthFooter } from "../AuthFooter";
-import { SheetHeader } from "../../../components/SheetHeader";
+import { AuthFooter } from "../auth-footer";
+import { SheetHeader } from "../../../components/sheet-header";
 
 type LogInProps = {};
 
