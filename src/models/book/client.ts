@@ -10,6 +10,7 @@ const bookRequests = {
 
 export const BooksClient = {
   getAllBooks: (): Promise<Book[]> => bookRequests.get("books"),
+  getSingleBook: (id: number): Promise<Book> => bookRequests.get(`books/${id}`),
 };
 
 // interface Book {

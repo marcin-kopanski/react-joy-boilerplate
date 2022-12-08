@@ -1,13 +1,14 @@
 import { Sheet } from "@mui/joy";
 import { useQuery } from "@tanstack/react-query";
 import { FC } from "react";
-import { useLoaderData } from "react-router-dom";
+import { useLoaderData, useNavigate } from "react-router-dom";
 import { SheetHeader } from "../../../components/sheet-header";
 import { allBooksLoader, allBooksQuery } from "../../../models/book/query-client";
 
 type BooksListProps = {};
 
 export const BooksList: FC<BooksListProps> = (props) => {
+  const navigate = useNavigate();
   const initialData = useLoaderData() as Awaited<ReturnType<ReturnType<typeof allBooksLoader>>>;
 
   const { data: books, isLoading } = useQuery({ ...allBooksQuery(), initialData });
@@ -20,7 +21,10 @@ export const BooksList: FC<BooksListProps> = (props) => {
         <ul>
           {books &&
             books.map((book) => (
-              <li key={`book_${book.id}`}>{`${book.id}) ${book.author} - "${book.title}"`}</li>
+              <li
+                key={`book_${book.id}`}
+                onClick={() => navigate(`${book.id}`)}
+              >{`${book.id}) ${book.author} - "${book.title}"`}</li>
             ))}
         </ul>
       )}

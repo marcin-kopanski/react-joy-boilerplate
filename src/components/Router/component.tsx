@@ -1,7 +1,8 @@
 import { FC } from "react";
-import { createBrowserRouter, RouterProvider } from "react-router-dom";
+import { createBrowserRouter, Outlet, RouterProvider } from "react-router-dom";
+import { BookDetails } from "../../feature/books/book-details";
 import { BooksList } from "../../feature/books/books-list";
-import { allBooksLoader } from "../../models/book/query-client";
+import { allBooksLoader, bookByIdLoader } from "../../models/book/query-client";
 import { queryClient } from "../../services/query-client-service";
 
 const router = createBrowserRouter([
@@ -11,8 +12,19 @@ const router = createBrowserRouter([
   },
   {
     path: "books",
-    element: <BooksList />,
-    loader: allBooksLoader(queryClient),
+    element: <Outlet />,
+    children: [
+      {
+        index: true,
+        element: <BooksList />,
+        loader: allBooksLoader(queryClient),
+      },
+      {
+        path: ":id",
+        element: <BookDetails />,
+        loader: bookByIdLoader(queryClient),
+      },
+    ],
   },
 ]);
 

@@ -4,7 +4,7 @@ import { SheetHeader } from "../../../components/sheet-header";
 
 type LogInProps = {};
 
-export const LogIn = (props: LogInProps) => {
+export const Login = (props: LogInProps) => {
   return (
     <Sheet
       sx={{
