@@ -68,8 +68,6 @@ export const BookDetails: FC<{}> = () => {
           )}
         />
 
-        {/* <input {...register("title", { required: true })} /> */}
-        {/* <input {...register("author", { required: true })} /> */}
         <input type={"datetime-local"} {...register("releaseDate", { required: true })} />
 
         <Button type={"submit"}>Submit</Button>
